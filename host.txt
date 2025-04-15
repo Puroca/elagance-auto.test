@@ -1,0 +1,16 @@
+Control panel username:	b14_38700551
+Control panel password:	**********
+Control panel URL:	cpanel.byethost14.com
+MySQL username	b14_38700551
+MySQL password:	**********
+MySQL hostname:	sql108.byethost14.com
+FTP username:	b14_38700551
+FTP password:	**********
+FTP host name:	ftp.byethost14.com
+Your Website URL:	http://elegance-auto.byethost14.com
+ 	 
+
+Thank you for choosing us to host your websites!
+
+byethost14.com hosting services 2025
+
