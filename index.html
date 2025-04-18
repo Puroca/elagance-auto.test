@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
     <title>Royal Motors - Luxury Car Rental in UK</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -11,6 +14,10 @@
         
         body {
             font-family: 'Poppins', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
         }
         
         .hero {
@@ -35,6 +42,7 @@
         .testimonial-card {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
         
         .nav-link:hover::after {
@@ -49,12 +57,58 @@
             background: #fff;
             transition: width .3s;
         }
+        
+        /* iOS Specific Styles */
+        input, 
+        textarea,
+        select,
+        button {
+            -webkit-appearance: none;
+            border-radius: 0;
+        }
+        
+        input[type="date"] {
+            display: block;
+            -webkit-appearance: textfield;
+            -moz-appearance: textfield;
+            min-height: 1.2em;
+        }
+        
+        @supports (-webkit-touch-callout: none) {
+            /* CSS specific to iOS devices */
+            .hero {
+                background-attachment: scroll;
+            }
+            
+            .flex {
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: flex;
+            }
+        }
+        
+        /* Improved touch targets for mobile */
+        @media (max-width: 768px) {
+            button, 
+            .nav-link, 
+            a.bg-red-500,
+            input[type="submit"] {
+                min-height: 44px;
+                min-width: 44px;
+            }
+            
+            .car-card {
+                margin-bottom: 2rem;
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-50">
     <!-- BotPress -->
+        
     <script src="https://cdn.botpress.cloud/webchat/v2.3/inject.js"></script>
-    <script src="https://files.bpcontent.cloud/2025/04/17/08/20250417083347-WRF2LRUM.js"></script>
+<script src="https://files.bpcontent.cloud/2025/04/17/08/20250417083347-WRF2LRUM.js"></script>
+    
 
     <!-- Header -->
     <header class="fixed w-full z-50">
