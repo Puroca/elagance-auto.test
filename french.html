@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Élégance Auto - Location de Voitures de Prestige au Bénin</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+      body {
+        font-family: 'Poppins', sans-serif;
+      }
+
+      .hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+          url('home_banner.png');
+        background-size: cover;
+        background-position: center;
+      }
+
+      .title-font {
+        font-family: 'Poppins', sans-serif;
+      }
+
+      .car-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      .car-card {
+        transition: all 0.3s ease;
+      }
+
+      .testimonial-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .nav-link::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 2px;
+        background: #fff;
+        transition: width 0.3s;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <script src="https://cdn.botpress.cloud/webchat/v2.3/inject.js"></script>
+    <script src="https://files.bpcontent.cloud/2025/04/17/08/20250417083347-WRF2LRUM.js"></script>
+
+    <!-- Header -->
+    <header class="fixed w-full z-50">
+      <nav class="bg-gray-900 text-white px-6 py-4">
+        <div class="container mx-auto flex justify-between items-center">
+          <div class="flex items-center space-x-2">
+            <i class="fas fa-car text-red-500 text-2xl"></i>
+            <a href="#" class="title-font text-2xl font-bold"
+              >Élégance<span class="text-red-500">Auto</span></a
+            >
+          </div>
+
+          <div class="hidden md:flex space-x-8">
+            <a href="#" class="nav-link">Accueil</a>
+            <a href="#vehicles" class="nav-link">Nos Véhicules</a>
+            <a href="#services" class="nav-link">Services</a>
+            <a href="#about" class="nav-link">À Propos</a>
+            <a href="#contact" class="nav-link">Contact</a>
+          </div>
+
+          <div class="flex items-center space-x-4">
+            <a
+              href="#"
+              class="hidden md:block bg-red-500 hover:bg-red-600 px-4 py-2 rounded-full transition"
+              >Réserver</a
+            >
+            <button
+              id="mobile-menu-button"
+              class="md:hidden text-white focus:outline-none"
+            >
+              <i class="fas fa-bars text-2xl"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-800 px-6 py-4">
+          <div class="flex flex-col space-y-4">
+            <a href="#" class="text-white hover:text-red-400">Accueil</a>
+            <a href="#vehicles" class="text-white hover:text-red-400"
+              >Nos Véhicules</a
+            >
+            <a href="#services" class="text-white hover:text-red-400"
+              >Services</a
+            >
+            <a href="#about" class="text-white hover:text-red-400">À Propos</a>
+            <a href="#contact" class="text-white hover:text-red-400">Contact</a>
+            <a
+              href="#"
+              class="bg-red-500 hover:bg-red-600 px-4 py-2 rounded-full text-center transition"
+              >Réserver</a
+            >
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero text-white pt-32 pb-20 md:pt-40 md:pb-32 px-6">
+      <div class="container mx-auto text-center">
+        <h1 class="title-font text-4xl md:text-6xl font-bold mb-6">
+          Location de Voitures de Prestige
+        </h1>
+        <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto">
+          Découvrez notre collection exclusive de véhicules haut de gamme pour
+          vos déplacements au Bénin
+        </p>
+
+        <div
+          class="max-w-4xl mx-auto bg-white bg-opacity-20 rounded-xl p-6 backdrop-filter backdrop-blur-sm"
+        >
+          <form class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div>
+              <label class="block text-left mb-2"
+                >Lieu de prise en charge</label
+              >
+              <select
+                class="w-full p-3 rounded-lg bg-white bg-opacity-90 text-gray-800"
+              >
+                <option>Cotonou</option>
+                <option>Porto-Novo</option>
+                <option>Parakou</option>
+                <option>Bohicon</option>
+                <option>Natitingou</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-left mb-2">Date de départ</label>
+              <input
+                type="date"
+                class="w-full p-3 rounded-lg bg-white bg-opacity-90 text-gray-800"
+              />
+            </div>
+            <div>
+              <label class="block text-left mb-2">Date de retour</label>
+              <input
+                type="date"
+                class="w-full p-3 rounded-lg bg-white bg-opacity-90 text-gray-800"
+              />
+            </div>
+            <div class="flex items-end">
+              <button
+                class="w-full bg-red-500 hover:bg-red-600 text-white p-3 rounded-lg transition"
+              >
+                Rechercher
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Cars -->
+    <section id="vehicles" class="py-16 px-6 bg-white">
+      <div class="container mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="title-font text-3xl md:text-4xl font-bold mb-4">
+            Notre Sélection Exclusive
+          </h2>
+          <p class="max-w-2xl mx-auto text-gray-600">
+            Découvrez notre collection de véhicules haut de gamme soigneusement
+            sélectionnés pour répondre à vos attentes les plus exigeantes.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Car 1 -->
+          <div class="car-card bg-white rounded-xl overflow-hidden shadow-lg">
+            <div class="relative">
+              <img
+                src="https://images.unsplash.com/photo-1555215695-3004980ad54e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                alt="Porsche 911"
+                class="w-full h-64 object-cover"
+              />
+              <div
+                class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm"
+              >
+                Nouveau
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="text-xl font-bold">Porsche 911 Carrera S</h3>
+                <span class="text-red-500 font-bold">295000 FCFA/jour</span>
+              </div>
+              <div class="flex items-center text-gray-500 mb-4">
+                <div class="flex items-center mr-4">
+                  <i class="fas fa-user mr-1"></i>
+                  <span>2</span>
+                </div>
+                <div class="flex items-center mr-4">
+                  <i class="fas fa-tachometer-alt mr-1"></i>
+                  <span>Automatique</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-gas-pump mr-1"></i>
+                  <span>Essence</span>
+                </div>
+              </div>
+              <p class="text-gray-600 mb-6">
+                La légendaire Porsche 911 Carrera S, alliant performance et
+                élégance pour des sensations uniques.
+              </p>
+              <button
+                class="w-full bg-gray-900 hover:bg-gray-800 text-white py-3 rounded-lg transition"
+              >
+                Réserver maintenant
+              </button>
+            </div>
+          </div>
+
+          <!-- Car 2 -->
+          <div class="car-card bg-white rounded-xl overflow-hidden shadow-lg">
+            <div class="relative">
+              <img
+                src="https://images.unsplash.com/photo-1493238792000-8113da705763?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                alt="Mercedes-Benz Classe S"
+                class="w-full h-64 object-cover"
+              />
+            </div>
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="text-xl font-bold">Mercedes-Benz Classe S</h3>
+                <span class="text-red-500 font-bold">250000 FCFA/jour</span>
+              </div>
+              <div class="flex items-center text-gray-500 mb-4">
+                <div class="flex items-center mr-4">
+                  <i class="fas fa-user mr-1"></i>
+                  <span>4</span>
+                </div>
+                <div class="flex items-center mr-4">
+                  <i class="fas fa-tachometer-alt mr-1"></i>
+                  <span>Automatique</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-gas-pump mr-1"></i>
+                  <span>Diesel</span>
+                </div>
+              </div>
+              <p class="text-gray-600 mb-6">
+                Le summum du luxe automobile avec un confort inégalé et une
+                technologie de pointe.
+              </p>
+              <button
+                class="w-full bg-gray-900 hover:bg-gray-800 text-white py-3 rounded-lg transition"
+              >
+                Réserver maintenant
+              </button>
+            </div>
+          </div>
+
+          <!-- Car 3 -->
+          <div class="car-card bg-white rounded-xl overflow-hidden shadow-lg">
+            <div class="relative">
+              <img
+                src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                alt="Range Rover Sport"
+                class="w-full h-64 object-cover"
+              />
+              <div
+                class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm"
+              >
+                Populaire
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="text-xl font-bold">Range Rover Sport SVR</h3>
+                <span class="text-red-500 font-bold">340000 FCFA/jour</span>
+              </div>
+              <div class="flex items-center text-gray-500 mb-4">
+                <div class="flex items-center mr-4">
+                  <i class="fas fa-user mr-1"></i>
+                  <span>5</span>
+                </div>
+                <div class="flex items-center mr-4">
+                  <i class="fas fa-tachometer-alt mr-1"></i>
+                  <span>Automatique</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-gas-pump mr-1"></i>
+                  <span>Essence</span>
+                </div>
+              </div>
+              <p class="text-gray-600 mb-6">
+                Performance brutale et raffinement britannique dans ce SUV haut
+                de gamme.
+              </p>
+              <button
+                class="w-full bg-gray-900 hover:bg-gray-800 text-white py-3 rounded-lg transition"
+              >
+                Réserver maintenant
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <a
+            href="#"
+            class="inline-block border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white px-8 py-3 rounded-full transition duration-300"
+            >Voir toute la collection</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section id="services" class="py-16 px-6 bg-gray-100">
+      <div class="container mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="title-font text-3xl md:text-4xl font-bold mb-4">
+            Pourquoi Choisir Élégance Auto ?
+          </h2>
+          <p class="max-w-2xl mx-auto text-gray-600">
+            Nous nous engageons à vous offrir une expérience de location
+            exceptionnelle.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white p-8 rounded-xl shadow-md text-center">
+            <div
+              class="bg-red-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4"
+            >
+              <i class="fas fa-shield-alt text-red-500 text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Assurance Premium</h3>
+            <p class="text-gray-600">
+              Couverture complète incluse sans frais supplémentaires pour une
+              tranquillité d'esprit totale.
+            </p>
+          </div>
+
+          <div class="bg-white p-8 rounded-xl shadow-md text-center">
+            <div
+              class="bg-red-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4"
+            >
+              <i class="fas fa-star text-red-500 text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Véhicules d'Exception</h3>
+            <p class="text-gray-600">
+              Collection soigneusement sélectionnée de véhicules haut de gamme
+              récents et parfaitement entretenus.
+            </p>
+          </div>
+
+          <div class="bg-white p-8 rounded-xl shadow-md text-center">
+            <div
+              class="bg-red-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4"
+            >
+              <i class="fas fa-concierge-bell text-red-500 text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Service Personnalisé</h3>
+            <p class="text-gray-600">
+              Notre équipe dédiée est disponible 24/7 pour répondre à tous vos
+              besoins et demandes spéciales.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 px-6 bg-gray-900 text-white">
+      <div class="container mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="title-font text-3xl md:text-4xl font-bold mb-4">
+            Témoignages de Nos Clients
+          </h2>
+          <p class="max-w-2xl mx-auto text-gray-300">
+            Découvrez ce que nos clients disent de leur expérience avec Élégance
+            Auto.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="testimonial-card p-8 rounded-xl border border-gray-700">
+            <div class="flex items-center mb-4">
+              <img
+                src="https://randomuser.me/api/portraits/women/65.jpg"
+                alt="Client"
+                class="w-12 h-12 rounded-full mr-4"
+              />
+              <div>
+                <h4 class="font-bold">Aïcha Soglo</h4>
+                <div class="flex text-yellow-400">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-300">
+              "Location d'une Porsche 911 pour un mariage à Cotonou. Service
+              impeccable, voiture parfaite. Je recommande vivement !"
+            </p>
+          </div>
+
+          <div class="testimonial-card p-8 rounded-xl border border-gray-700">
+            <div class="flex items-center mb-4">
+              <img
+                src="https://randomuser.me/api/portraits/men/32.jpg"
+                alt="Client"
+                class="w-12 h-12 rounded-full mr-4"
+              />
+              <div>
+                <h4 class="font-bold">Koffi Adékambi</h4>
+                <div class="flex text-yellow-400">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-300">
+              "La Mercedes Classe S était parfaite pour mes déplacements
+              professionnels entre Cotonou et Porto-Novo. Service professionnel
+              et ponctuel."
+            </p>
+          </div>
+
+          <div class="testimonial-card p-8 rounded-xl border border-gray-700">
+            <div class="flex items-center mb-4">
+              <img
+                src="https://randomuser.me/api/portraits/women/44.jpg"
+                alt="Client"
+                class="w-12 h-12 rounded-full mr-4"
+              />
+              <div>
+                <h4 class="font-bold">Fatou Bello</h4>
+                <div class="flex text-yellow-400">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-300">
+              "Excellent service client. Ils ont organisé la livraison de la
+              voiture à mon hôtel à Parakou pour mon séjour d'affaires. Très
+              satisfaite !"
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 px-6 bg-white">
+      <div class="container mx-auto">
+        <div class="flex flex-col lg:flex-row items-center">
+          <div class="lg:w-1/2 mb-8 lg:mb-0 lg:pr-12">
+            <h2 class="title-font text-3xl md:text-4xl font-bold mb-6">
+              Notre Histoire
+            </h2>
+            <p class="text-gray-600 mb-6">
+              Fondée en 2010 à Cotonou, Élégance Auto est née de la passion pour
+              les automobiles de prestige et du désir d'offrir une expérience de
+              location exceptionnelle.
+            </p>
+            <p class="text-gray-600 mb-8">
+              Aujourd'hui, avec des agences dans toutes les grandes villes du
+              Bénin, nous proposons une collection soigneusement sélectionnée de
+              véhicules haut de gamme pour répondre aux attentes des clients les
+              plus exigeants.
+            </p>
+
+            <div class="grid grid-cols-2 gap-4">
+              <div class="flex items-center">
+                <div
+                  class="bg-red-100 w-10 h-10 rounded-full flex items-center justify-center mr-3"
+                >
+                  <i class="fas fa-car text-red-500"></i>
+                </div>
+                <span class="font-bold">50+ Véhicules</span>
+              </div>
+              <div class="flex items-center">
+                <div
+                  class="bg-red-100 w-10 h-10 rounded-full flex items-center justify-center mr-3"
+                >
+                  <i class="fas fa-map-marker-alt text-red-500"></i>
+                </div>
+                <span class="font-bold">8 Villes</span>
+              </div>
+              <div class="flex items-center">
+                <div
+                  class="bg-red-100 w-10 h-10 rounded-full flex items-center justify-center mr-3"
+                >
+                  <i class="fas fa-users text-red-500"></i>
+                </div>
+                <span class="font-bold">5000+ Clients</span>
+              </div>
+              <div class="flex items-center">
+                <div
+                  class="bg-red-100 w-10 h-10 rounded-full flex items-center justify-center mr-3"
+                >
+                  <i class="fas fa-star text-red-500"></i>
+                </div>
+                <span class="font-bold">4.9/5 Notes</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:w-1/2 relative">
+            <img
+              src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2083&q=80"
+              alt="Showroom"
+              class="w-full rounded-xl shadow-xl"
+            />
+            <div
+              class="absolute -bottom-6 -left-6 bg-red-500 text-white p-6 rounded-xl shadow-lg hidden lg:block"
+            >
+              <h3 class="text-xl font-bold mb-2">13 ans</h3>
+              <p>d'expérience</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 px-6 bg-gray-100">
+      <div class="container mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="title-font text-3xl md:text-4xl font-bold mb-4">
+            Contactez-Nous
+          </h2>
+          <p class="max-w-2xl mx-auto text-gray-600">
+            Notre équipe est à votre disposition pour répondre à toutes vos
+            questions.
+          </p>
+        </div>
+
+        <div
+          class="max-w-4xl mx-auto bg-white rounded-xl shadow-md overflow-hidden"
+        >
+          <div class="md:flex">
+            <div class="md:w-1/2 bg-red-500 text-white p-8">
+              <h3 class="text-xl font-bold mb-6">Informations de Contact</h3>
+
+              <div class="flex items-start mb-6">
+                <i class="fas fa-map-marker-alt mt-1 mr-4"></i>
+                <div>
+                  <h4 class="font-bold">Adresse</h4>
+                  <p>Rue 123, Quartier Haie Vive, Cotonou, Bénin</p>
+                </div>
+              </div>
+
+              <div class="flex items-start mb-6">
+                <i class="fas fa-phone-alt mt-1 mr-4"></i>
+                <div>
+                  <h4 class="font-bold">Téléphone</h4>
+                  <p>+229 21 30 40 50</p>
+                </div>
+              </div>
+
+              <div class="flex items-start mb-6">
+                <i class="fas fa-envelope mt-1 mr-4"></i>
+                <div>
+                  <h4 class="font-bold">Email</h4>
+                  <p>contact@eleganceauto.bj</p>
+                </div>
+              </div>
+
+              <div class="flex items-start">
+                <i class="fas fa-clock mt-1 mr-4"></i>
+                <div>
+                  <h4 class="font-bold">Heures d'Ouverture</h4>
+                  <p>Lundi - Vendredi: 9h - 19h<br />Samedi: 10h - 18h</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="md:w-1/2 p-8">
+              <form>
+                <div class="mb-4">
+                  <label class="block text-gray-700 mb-2">Nom Complet</label>
+                  <input
+                    type="text"
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+                  />
+                </div>
+
+                <div class="mb-4">
+                  <label class="block text-gray-700 mb-2">Email</label>
+                  <input
+                    type="email"
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+                  />
+                </div>
+
+                <div class="mb-4">
+                  <label class="block text-gray-700 mb-2">Sujet</label>
+                  <input
+                    type="text"
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+                  />
+                </div>
+
+                <div class="mb-6">
+                  <label class="block text-gray-700 mb-2">Message</label>
+                  <textarea
+                    rows="4"
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  class="w-full bg-red-500 hover:bg-red-600 text-white py-3 rounded-lg transition"
+                >
+                  Envoyer le Message
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-16 px-6 bg-gray-900 text-white">
+      <div class="container mx-auto max-w-4xl text-center">
+        <h2 class="title-font text-3xl md:text-4xl font-bold mb-4">
+          Abonnez-vous à Notre Newsletter
+        </h2>
+        <p class="mb-8 max-w-2xl mx-auto text-gray-300">
+          Recevez nos offres exclusives et les dernières nouveautés directement
+          dans votre boîte mail.
+        </p>
+
+        <form class="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
+          <input
+            type="email"
+            placeholder="Votre adresse email"
+            class="flex-grow px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-red-500"
+          />
+          <button
+            type="submit"
+            class="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-lg transition"
+          >
+            S'abonner
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12 px-6">
+      <div class="container mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <div class="flex items-center space-x-2 mb-4">
+              <i class="fas fa-car text-red-500 text-2xl"></i>
+              <a href="#" class="title-font text-2xl font-bold"
+                >Élégance<span class="text-red-500">Auto</span></a
+              >
+            </div>
+            <p class="text-gray-400 mb-4">
+              Location de voitures de prestige en France pour des expériences
+              automobiles exceptionnelles.
+            </p>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-400 hover:text-white"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="text-gray-400 hover:text-white"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" class="text-gray-400 hover:text-white"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="text-gray-400 hover:text-white"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold mb-4">Liens Rapides</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white">Accueil</a>
+              </li>
+              <li>
+                <a href="#vehicles" class="text-gray-400 hover:text-white"
+                  >Nos Véhicules</a
+                >
+              </li>
+              <li>
+                <a href="#services" class="text-gray-400 hover:text-white"
+                  >Services</a
+                >
+              </li>
+              <li>
+                <a href="#about" class="text-gray-400 hover:text-white"
+                  >À Propos</a
+                >
+              </li>
+              <li>
+                <a href="#contact" class="text-gray-400 hover:text-white"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold mb-4">Nos Services</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white"
+                  >Location Longue Durée</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white"
+                  >Livraison à Domicile</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white"
+                  >Service avec Chauffeur</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white"
+                  >Événements Spéciaux</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white"
+                  >Assurances</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold mb-4">Nos Agences</h3>
+            <ul class="space-y-2">
+              <li class="text-gray-400">Cotonou</li>
+              <li class="text-gray-400">Porto-Novo</li>
+              <li class="text-gray-400">Parakou</li>
+              <li class="text-gray-400">Bohicon</li>
+              <li class="text-gray-400">Natitingou</li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center"
+        >
+          <p class="text-gray-400 mb-4 md:mb-0">
+            © 2023 Élégance Auto. Tous droits réservés.
+          </p>
+          <div class="flex space-x-6">
+            <a href="#" class="text-gray-400 hover:text-white"
+              >Conditions Générales</a
+            >
+            <a href="#" class="text-gray-400 hover:text-white"
+              >Politique de Confidentialité</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      document
+        .getElementById('mobile-menu-button')
+        .addEventListener('click', function () {
+          const menu = document.getElementById('mobile-menu')
+          menu.classList.toggle('hidden')
+        })
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault()
+
+          const targetId = this.getAttribute('href')
+          if (targetId === '#') return
+
+          const targetElement = document.querySelector(targetId)
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: 'smooth',
+            })
+
+            // Close mobile menu if open
+            const mobileMenu = document.getElementById('mobile-menu')
+            if (!mobileMenu.classList.contains('hidden')) {
+              mobileMenu.classList.add('hidden')
+            }
+          }
+        })
+      })
+
+      // Add shadow to header on scroll
+      window.addEventListener('scroll', function () {
+        const header = document.querySelector('header')
+        if (window.scrollY > 50) {
+          header.classList.add('shadow-lg')
+        } else {
+          header.classList.remove('shadow-lg')
+        }
+      })
+    </script>
+  </body>
+</html>
