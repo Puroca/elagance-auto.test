@@ -105,11 +105,91 @@
 </head>
 <body class="bg-gray-50">
     <!-- BotPress -->
-        
-    <script src="https://cdn.botpress.cloud/webchat/v2.3/inject.js"></script>
-<script src="https://files.bpcontent.cloud/2025/04/17/08/20250417083347-WRF2LRUM.js"></script>
+    <script src="https://cdn.botpress.cloud/webchat/v2.3/inject.js" defer crossorigin="anonymous"></script>
+    <script src="https://files.bpcontent.cloud/2025/04/17/08/20250417083347-WRF2LRUM.js" defer crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Détection des appareils iOS
+            var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+            
+            // Fonction pour initialiser Botpress avec un délai pour iOS
+            function initBotpress() {
+                // Vérifier si la fonction Botpress est chargée
+                if (typeof window.botpressWebChat !== 'undefined') {
+                    // Configuration spécifique pour iOS si nécessaire
+                    var botpressConfig = {
+                        hideWidget: false,
+                        disableAnimations: isIOS, // Désactiver les animations sur iOS
+                        enableTranscriptDownload: true,
+                        closeOnEscape: true,
+                        showConversationDuration: false,
+                        enablePersistHistory: true
+                    };
+                    
+                    // Appliquer la configuration
+                    try {
+                        if (window.botpressWebChat && window.botpressWebChat.init) {
+                            console.log("Initialisation de Botpress...");
+                            // Si des configurations supplémentaires sont nécessaires, les ajouter ici
+                        }
+                    } catch (error) {
+                        console.error("Erreur lors de l'initialisation de Botpress:", error);
+                    }
+                } else {
+                    // Retenter après un délai si Botpress n'est pas encore chargé
+                    setTimeout(initBotpress, 500);
+                }
+            }
+            
+            // Démarrer l'initialisation
+            initBotpress();
+            
+            // Gestion spécifique pour iOS Safari
+            if (isIOS) {
+                // Correction pour les problèmes de clavier iOS
+                document.addEventListener('touchstart', function(e) {
+                    // Si l'élément touché est un champ de saisie dans le chatbot
+                    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+                        // Ajouter une classe pour ajuster la vue sur iOS
+                        document.body.classList.add('ios-keyboard-open');
+                    }
+                }, false);
+                
+                document.addEventListener('touchend', function(e) {
+                    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+                        // Retirer la classe après un court délai
+                        setTimeout(function() {
+                            document.body.classList.remove('ios-keyboard-open');
+                        }, 300);
+                    }
+                }, false);
+            }
+        });
+    </script>
+    <style>
+        /* Styles pour corriger les problèmes d'affichage de Botpress sur iOS */
+        @supports (-webkit-touch-callout: none) {
+            /* iOS uniquement */
+            .bp-widget-web {
+                -webkit-overflow-scrolling: touch !important;
+            }
+            
+            /* Correction pour l'ouverture du clavier sur iOS */
+            body.ios-keyboard-open .bp-widget-web {
+                position: fixed !important;
+                bottom: 0 !important;
+                height: 70vh !important;
+            }
+            
+            /* S'assurer que le widget est visible sur iOS */
+            #bp-web-widget-container {
+                z-index: 9999 !important;
+                position: fixed !important;
+                display: block !important;
+            }
+        }
+    </style>
     
-
     <!-- Header -->
     <header class="fixed w-full z-50">
         <nav class="bg-gray-900 text-white px-6 py-4">
